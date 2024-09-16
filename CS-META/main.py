@@ -2,8 +2,7 @@ import numpy as np
 import random
 from typing import Tuple
 
-# Constants
-BOARD_SIZE = 30
+BOARD_SIZE = 25
 EMPTY = 0
 SNAKE = 1
 FOOD = 2
