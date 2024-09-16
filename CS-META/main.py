@@ -21,7 +21,7 @@ class Snake:
         self._initialize_snake()
         self._place_food()
 
-    # This code is final
+    # this code is final
     def _initialize_board(self) -> np.ndarray:
         """make the game board with empty cells"""
         return np.zeros((self.size, self.size), dtype=int)
@@ -60,17 +60,17 @@ class Snake:
         move_y, move_x = self.direction
         new_head_y, new_head_x = head_y + move_y, head_x + move_x
 
-        # Check if the new position is within board boundaries
+        # see if the new position is within board boundaries
         if 0 <= new_head_y < self.size and 0 <= new_head_x < self.size:
             if (new_head_y, new_head_x) in self.snake:
                 print("Snake ran into itself, game over")
                 return
 
-            # Move snake
+            # moves snake
             self.snake.append((new_head_y, new_head_x))
             self.board[new_head_y, new_head_x] = SNAKE
 
-            # Check if food is eaten
+            # sees if food is eaten
             if self.board[new_head_y, new_head_x] == FOOD:
                 self._place_food()  # Place new food
             else:
@@ -91,7 +91,6 @@ class Snake:
 def main() -> None:
     game = Snake()
 
-    print("Initial board:")
     game.print_board()
 
     # Example moves
