@@ -3,7 +3,7 @@ import random
 from typing import Tuple
 
 # Constants
-BOARD_SIZE = 20
+BOARD_SIZE = 30
 EMPTY = 0
 SNAKE = 1
 FOOD = 2
