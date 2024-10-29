@@ -12,7 +12,7 @@ EMPTY = 0
 SNAKE = 1
 FOOD = 2
 INITIAL_LENGTH = 3
-EPISODES = 10000
+EPISODES = 5000
 MAX_MEMORY = 2000
 BATCH_SIZE = 256
 GAMMA = 0.99
@@ -109,7 +109,7 @@ class Agent:
         self.loss_fn = nn.MSELoss()
         self.epsilon = 1.0
         self.epsilon_min = 0.01
-        self.epsilon_decay = 0.99999995
+        self.epsilon_decay = 0.999995
 
     def remember(
         self,
