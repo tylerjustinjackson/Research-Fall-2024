@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from collections import deque
-from typing import Tuple, List
+from typing import Tuple
 import matplotlib.pyplot as plt
 
 BOARD_SIZE = 25
