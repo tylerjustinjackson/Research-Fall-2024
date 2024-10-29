@@ -188,7 +188,7 @@ def main():
             f"Episode {episode + 1}/{EPISODES}, Total reward: {total_reward}, Epsilon: {agent.epsilon:.2f}"
         )
 
-    model_save_path = "snake_model.pth"
+    model_save_path = "model.pth"
     torch.save(agent.model.state_dict(), model_save_path)
     print(f"Model saved to {model_save_path}")
 
