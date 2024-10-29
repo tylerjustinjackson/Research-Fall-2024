@@ -6,15 +6,17 @@ import torch.optim as optim
 from collections import deque
 from typing import Tuple
 import matplotlib.pyplot as plt
+import time
 
+timestart = time.time()
 BOARD_SIZE = 25
 EMPTY = 0
 SNAKE = 1
 FOOD = 2
 INITIAL_LENGTH = 3
-EPISODES = 5000
+EPISODES = 50000
 MAX_MEMORY = 2000
-BATCH_SIZE = 256
+BATCH_SIZE = 128
 GAMMA = 0.99
 
 
@@ -201,3 +203,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    endtime = time.time()
+    print(timestart - endtime)
