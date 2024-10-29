@@ -111,7 +111,7 @@ class Agent:
         self.loss_fn = nn.MSELoss()
         self.epsilon = 1.0
         self.epsilon_min = 0.01
-        self.epsilon_decay = 0.999995
+        self.epsilon_decay = 0.99995
 
     def remember(
         self,
