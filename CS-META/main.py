@@ -186,6 +186,14 @@ def main():
         agent.replay()
         total_rewards.append(total_reward)
         game.reset()
+#des
+        if (episode + 1) % 100 == 0:
+            rewards_batch = total_rewards[-100:]  # Last 100 rewards
+            batch_counts = {i: rewards_batch.count(i) for i in range(-30, -9)}  
+            batch_sum = sum(batch_counts.values())  # Total occurrences in this batch
+            all_batches_counts.append((batch_counts, batch_sum))  # Save counts and sum
+
+        print(f"Episodes {episode - 99}-{episode + 1}: Reward counts: {batch_counts}, Total: {batch_sum}")
         print(
             f"Episode {episode + 1}/{EPISODES}, Total reward: {total_reward}, Epsilon: {agent.epsilon:.2f}"
         )
@@ -193,6 +201,15 @@ def main():
     model_save_path = "model.pth"
     torch.save(agent.model.state_dict(), model_save_path)
     print(f"Model saved to {model_save_path}")
+#des
+    with open("batch_reward_counts.txt", "w") as f:
+        for idx, (counts, total) in enumerate(all_batches_counts):
+            f.write(f"Batch {idx + 1} (Episodes {idx * 100 + 1}-{(idx + 1) * 100}):\n")
+            for reward, count in counts.items():
+                f.write(f"{reward}: {count}\n")
+            f.write(f"Total: {total}\n\n")
+
+    print("Batch reward counts saved to batch_reward_counts.txt")
 
     with open("learning_progress.txt", "w") as f:
         for i, reward in enumerate(total_rewards):
