@@ -1,0 +1,15 @@
+game.set_direction((0, 1))  # right
+game.move_snake()
+game.print_board()
+
+game.set_direction((1, 0))  # down
+game.move_snake()
+game.print_board()
+
+game.set_direction((0, -1))  # left
+game.move_snake()
+game.print_board()
+
+game.set_direction((-1, 0))  # up
+game.move_snake()
+game.print_board()
